@@ -1,0 +1,172 @@
+@import "./flex.scss";
+@import "./button.scss";
+
+@mixin transformToCenter {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.textover-2 {
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+//弹出层打开时 body的禁止滚动
+.noscroll {
+    position: fixed;
+    overflow-y: scroll;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+// 切换动画
+$toggle-time: 0.5s;
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity $toggle-time ease;
+}
+.fade-enter,
+.fade-leave-active {
+    opacity: 0;
+}
+
+//生成placeholder兼容
+// @param $selecter className
+@mixin placeholder($selecter) {
+    $S: $selecter;
+    // #{$S} {
+    //   @content;
+    // }
+    #{$S}::-webkit-input-placeholder {
+        @content;
+    }
+    #{$S}:-moz-placeholder {
+        @content;
+    }
+    #{$S}::-moz-placeholder {
+        @content;
+    }
+    #{$S}:-ms-input-placeholder {
+        @content;
+    }
+    #{$S}::placeholder {
+        @content;
+    }
+}
+
+// 弹出层
+.shadow {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    &.main {
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+// 验证码样式
+.login {
+    width: 14.68rem;
+    height: 12.33rem;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 5px;
+    padding: 1.15rem 1.1rem 1.13rem 1.1rem;
+
+    @include transformToCenter;
+    top: 21.6%;
+
+    &.imgcode {
+        width: 14.68rem;
+        height: 7.83rem;
+        top: 25.5%;
+        .title {
+            display: none;
+        }
+        .btns {
+            margin-top: 1.2rem;
+        }
+    }
+
+    .title {
+        font-size: 0.9rem;
+        font-family: PingFang SC;
+        font-weight: 500;
+        color: rgba(17, 17, 17, 1);
+        line-height: 1rem;
+        text-align: center;
+        margin-bottom: 1.23rem;
+        line-height: 1;
+    }
+    .input-row {
+        position: relative;
+        line-height: 1;
+        & + .input-row {
+            margin-top: 0.75rem;
+        }
+        .code {
+            line-height: 1;
+            position: absolute;
+            top: 0.8rem;
+            right: 0.83rem;
+            font-size: 0.7rem;
+            font-family: PingFang SC;
+            font-weight: 400;
+            color: rgba(239, 177, 77, 1);
+            line-height: 1rem;
+            &.disable {
+                font-size: 0.7rem;
+                font-family: PingFang SC;
+                font-weight: 400;
+                color: rgba(153, 153, 153, 1);
+                line-height: 1rem;
+            }
+        }
+    }
+    .input {
+        width: 12.68rem;
+        height: 2.25rem;
+        background: rgba(250, 250, 250, 1);
+        border-radius: 1rem;
+        border: none;
+        padding-left: 1.05rem;
+        padding-right: 1.05rem;
+
+        font-size: 0.75rem;
+        font-family: PingFang SC;
+        font-weight: 400;
+        color: rgba(51, 51, 51, 1);
+        line-height: 1rem;
+    }
+    @include placeholder(".input") {
+        font-size: 0.75rem;
+        font-family: PingFang SC;
+        font-weight: 400;
+        color: rgba(51, 51, 51, 1);
+        line-height: 1rem;
+        opacity: 0.2;
+    }
+    .btns {
+        margin-top: 0.98rem;
+        .btn {
+            width: 5.95rem;
+            line-height: 1.75rem;
+            font-size: 0.85rem;
+            font-family: PingFang SC;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 1);
+        }
+        .btn.btn-border {
+            background: rgba(255, 255, 255, 1);
+            border: 1px solid rgba(239, 177, 77, 1);
+            color: #efb14d;
+        }
+    }
+}

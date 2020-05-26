@@ -1,0 +1,13 @@
+{
+    "root": true,
+    "env": {
+        "node": false,
+        "amd": false,
+        "es6": false,
+        "browser": false
+    },
+    // disable rules from base configurations
+    "rules": {
+        "no-console":"off"
+    }
+}

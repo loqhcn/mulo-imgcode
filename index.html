@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, user-scalable=no">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>Mulo</title>
+  <style>
+    body {
+      -webkit-text-size-adjust: none !important;
+    }
+
+    body {
+      -webkit-text-size-adjust: 100% !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <noscript>
+    <strong>We're sorry but zoo-zoolife doesn't work properly without JavaScript enabled. Please enable it to
+      continue.</strong>
+  </noscript>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+
+  <script>
+    (function () {
+      function resize() {
+        // if(!window.hzapp_data_isPhone){
+        //   return resize_pc();
+        // }
+        //在750px宽度 1rem=40px;
+        var baseFontSize = 40;
+        var baseWidth = 750;
+        var maxWidth = 750;
+
+
+        var clientWidth = window.document.documentElement.clientWidth || window.innerWidth;
+        // var innerWidth = Math.max(Math.min(clientWidth, 480), 320);
+        clientWidth = clientWidth || 750;
+        if (!window.hzapp_data_isPhone && clientWidth > maxWidth) {
+          clientWidth = maxWidth;
+        }
+        var rem = (clientWidth / baseWidth) * baseFontSize;
+        window.__baseRem = rem;
+
+
+
+        window.document.documentElement.style.fontSize = rem + 'px';
+      }
+      function resize_pc() {
+
+        window.document.documentElement.style.fontSize = 20 + 'px';
+      }
+      resize();
+      window.onresize = resize;
+    }());
+
+
+    //Android微信中，借助WeixinJSBridge对象来阻止字体大小调整
+    (function () {
+      if (typeof WeixinJSBridge == "object" && typeof WeixinJSBridge.invoke == "function") {
+        handleFontSize();
+      } else {
+        if (document.addEventListener) {
+          document.addEventListener("WeixinJSBridgeReady", handleFontSize, false);
+        } else if (document.attachEvent) {
+          //IE浏览器，非W3C规范
+          document.attachEvent("onWeixinJSBridgeReady", handleFontSize);
+        }
+      }
+      function handleFontSize() {
+        // 设置网页字体为默认大小
+        WeixinJSBridge.invoke('setFontSizeCallback', { 'fontSize': 0 });
+        // 重写设置网页字体大小的事件
+        WeixinJSBridge.on('menu:setfont', function () {
+          WeixinJSBridge.invoke('setFontSizeCallback', { 'fontSize': 0 });
+        });
+      }
+    })();
+
+  </script>
+
+</body>
+
+</html>

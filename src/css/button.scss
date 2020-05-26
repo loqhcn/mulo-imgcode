@@ -1,0 +1,18 @@
+.btn {
+    width: 100%;
+    line-height: 2.45rem;
+    background: rgba(239, 177, 77, 1);
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    font-family: PingFang SC;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 1);
+    display: inline-block;
+    text-align: center;
+    border: none;
+    word-break: keep-all;
+    
+    &:focus {
+        border: none;
+    }
+}

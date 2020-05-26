@@ -1,0 +1,26 @@
+{
+  "name": "mulo-imgcode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "GVerify.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "vue serve ./dev/main.js",
+    "build": "vue build --target lib --name index --dest lib src/index.js"
+  },
+  "keywords": [
+    "图片验证码",
+    "imgcode",
+    "验证码"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@vue/cli-service": "^4.3.1",
+    "babel-plugin-import": "^1.13.0"
+  },
+  "dependencies": {
+    "vant": "^2.8.3",
+    "vue": "^2.6.11"
+  }
+}
