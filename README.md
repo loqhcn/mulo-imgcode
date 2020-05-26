@@ -1,16 +1,20 @@
 ## vue移动端图片验证码弹出层插件
 
-![](show.png)
+![](./show.png)
 
 ## 使用
+
+```cmd
+
+npm i mulo-imgcode -S
+
+```
 
 ```vue
 
 <template>
   <div>
     <button @click="show">To Validate Img Code</button>
-
-    <!--  -->
     <mulo-imgcode ref="imgcode" @success="success" :showerr="showerr"></mulo-imgcode>
   </div>
 </template>
@@ -39,8 +43,6 @@ export default {
   }
 };
 </script>
-
 <style lang="scss" scoped>
 </style>
-
 ```

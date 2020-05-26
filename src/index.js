@@ -11,8 +11,7 @@ if (typeof window !== 'undefined' && window.Vue) {
     //全局的ajax
     window.$http = window.Vue.prototype.$http;
 }
-export default {
-    install,
-    version: '0.0.1',
-    ImgCode
-}
+
+ImgCode.install - install;
+
+export default ImgCode;
