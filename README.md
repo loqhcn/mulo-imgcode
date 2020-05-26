@@ -1,6 +1,7 @@
 ## vue移动端图片验证码弹出层插件
 
-![image](http://qiniu1.loqh.cn/mulo-imgcode-view.png)
+<image alt="img" src="http://qiniu1.loqh.cn/mulo-imgcode-view.png">
+
 
 ## 使用
 
