@@ -1,13 +1,16 @@
 {
   "name": "mulo-imgcode",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
-  "main": "GVerify.js",
+  "main": "lib/index.umd.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "vue serve ./dev/main.js",
     "build": "vue build --target lib --name index --dest lib src/index.js"
   },
+  "files": [
+    "lib"
+  ],
   "keywords": [
     "图片验证码",
     "imgcode",
@@ -22,5 +25,9 @@
   "dependencies": {
     "vant": "^2.8.3",
     "vue": "^2.6.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loqhcn/mulo-imgcode"
   }
 }
